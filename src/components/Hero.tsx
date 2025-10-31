@@ -6,11 +6,11 @@ import { useState, useEffect } from 'react';
 
 export default function Hero() {
   const images = [
-    { src: '/images/IMG_4166.JPG', position: '20% 30%', mobilePosition: '10% 100%' },
-    { src: '/images/DSC_7629.jpeg', position: '70% 30%', mobilePosition: '10% 100%' },
-    { src: '/images/DSC_7678.jpeg', position: '20% 30%', mobilePosition: '10% 100%' },
-    { src: '/images/IMG_4280.JPG', position: '20% 30%', mobilePosition: '10% 100%' },
-    { src: '/images/IMG_4322.JPG', position: '70% 30%', mobilePosition: '10% 100%' }
+    { src: '/images/IMG_4166.JPG', position: '70% 40%', mobilePosition: '10% 100%' },
+    { src: '/images/IMG_4280.JPG', position: '60% 40%', mobilePosition: '10% 100%' },
+    { src: '/images/DSC_7629.jpeg', position: '70% 45%', mobilePosition: '10% 100%' },
+    { src: '/images/DSC_7678.jpeg', position: '20% 35%', mobilePosition: '10% 100%' },
+    { src: '/images/IMG_4322.JPG', position: '70% 50%', mobilePosition: '10% 100%' }
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -70,19 +70,14 @@ export default function Hero() {
       <div className="container mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-20 pb-20 md:pb-20 relative z-10">
         <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8 animate-[slideUp_1s_ease-out]">
 
-          <h1 className="font-perpetua text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.4] sm:leading-[1.1] px-6 sm:px-8 md:px-2 max-w-5xl mx-auto">
+          <h1 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-[1.4] sm:leading-[1.1] px-6 sm:px-8 md:px-2 max-w-5xl mx-auto">
             Como transformar o que você sente em algo que o outro possa escutar
           </h1>
 
           <div className="w-16 sm:w-20 h-1 bg-[var(--primary)] mx-auto hidden xl:block"></div>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed max-w-4xl mx-auto px-4 hidden xl:block">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed max-w-4xl mx-auto px-4 hidden xl:block whitespace-nowrap">
             Passo a passo para transformar o que antes virava briga em entendimento e conexão
-          </p>
-
-          <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-3xl mx-auto px-4 hidden xl:block">
-            O jeito de se comunicar com clareza, diminuir conflitos e se aproximar de quem você ama.
-            Porque quando a conversa muda, o relacionamento muda junto.
           </p>
 
           <div className="pt-8 sm:pt-6">
