@@ -26,14 +26,12 @@ export default function CourseAccess() {
     <section id="curso" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-white to-[var(--accent)]">
       <div className="container mx-auto px-4 sm:px-6">
           <div ref={title.ref} className={`text-center mb-10 sm:mb-12 animate-on-scroll ${title.isVisible ? 'visible' : ''}`}>
-            <h2 className="font-perpetua text-2xl sm:text-2xl md:text-4xl lg:text-5xl text-[var(--foreground)] mb-4 sm:mb-6">
+            <h2 className="font-perpetua text-2xl sm:text-2xl md:text-4xl lg:text-5xl text-[var(--foreground)] mb-4 sm:mb-6 px-4">
               Comece sua transformação hoje
             </h2>
-            <div className="flex justify-center">
-              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl px-4 hidden lg:block whitespace-nowrap">
-                Tenha acesso imediato a todo o conteúdo do curso e comece a transformar sua comunicação agora mesmo.
-              </p>
-            </div>
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed px-4 hidden lg:block italic font-light text-center">
+              Tenha acesso imediato a todo o conteúdo do curso e comece a transformar sua comunicação agora mesmo.
+            </p>
           </div>
 
 
@@ -59,13 +57,13 @@ export default function CourseAccess() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mt-12 sm:mt-16 items-stretch">
-            <div ref={leftCard.ref} className={`flex flex-col animate-fade-left ${leftCard.isVisible ? 'visible' : ''} px-4 sm:px-0`}>
-              <h3 className="font-perpetua text-2xl sm:text-2xl md:text-3xl text-[var(--foreground)] mb-6 sm:mb-8 text-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mt-12 sm:mt-16 items-stretch max-w-7xl mx-auto">
+            <div ref={leftCard.ref} className={`flex flex-col animate-fade-left ${leftCard.isVisible ? 'visible' : ''} justify-self-center w-full max-w-xl lg:max-w-none`}>
+              <h3 className="font-perpetua text-2xl sm:text-2xl md:text-3xl text-[var(--foreground)] mb-6 sm:mb-8 text-center px-4">
                 Para quem é?
               </h3>
 
-              <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 text-center px-4 max-w-2xl mx-auto hidden sm:block">
+              <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 text-center px-4 max-w-2xl mx-auto hidden sm:block italic font-light">
                 Esse curso é pra você que:
               </p>
 
@@ -94,12 +92,12 @@ export default function CourseAccess() {
               </div>
             </div>
 
-            <div ref={rightCard.ref} className={`flex flex-col animate-fade-right ${rightCard.isVisible ? 'visible' : ''} px-4 sm:px-0`}>
-              <h3 className="font-perpetua text-2xl sm:text-2xl md:text-3xl text-[var(--foreground)] mb-6 sm:mb-8 text-center whitespace-nowrap">
+            <div ref={rightCard.ref} className={`flex flex-col animate-fade-right ${rightCard.isVisible ? 'visible' : ''} justify-self-center w-full max-w-xl lg:max-w-none`}>
+              <h3 className="font-perpetua text-[1.2rem] sm:text-2xl md:text-3xl text-[var(--foreground)] mb-6 sm:mb-8 text-center px-4">
                 O que você vai aprender
               </h3>
 
-              <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 text-center px-4 max-w-2xl mx-auto hidden sm:block">
+              <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 text-center px-4 max-w-2xl mx-auto hidden sm:block italic font-light">
                 Neste curso você vai ver:
               </p>
 
@@ -124,7 +122,7 @@ export default function CourseAccess() {
           <div className="w-32 sm:w-40 h-1 bg-[var(--primary)] mt-12 sm:mt-16 mx-auto"></div>
 
           <div ref={materials.ref} className={`mt-12 sm:mt-16 animate-on-scroll ${materials.isVisible ? 'visible' : ''}`}>
-            <h3 className="font-perpetua text-2xl sm:text-2xl md:text-3xl text-[var(--foreground)] mb-6 sm:mb-8 text-center whitespace-nowrap">
+            <h3 className="font-perpetua text-[1.2rem] sm:text-2xl md:text-3xl text-[var(--foreground)] mb-6 sm:mb-8 text-center px-4">
               O que você vai receber
             </h3>
 

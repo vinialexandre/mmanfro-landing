@@ -23,11 +23,11 @@ export default function CTA() {
     <section className="py-12 sm:py-16 md:py-20 bg-gray-200">
       <div className="container mx-auto px-4 sm:px-6">
         <div ref={content.ref} className={`max-w-5xl mx-auto text-center animate-on-scroll ${content.isVisible ? 'visible' : ''}`}>
-          <h2 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--dark)] mb-4 sm:mb-6 leading-tight whitespace-nowrap">
+          <h2 className="font-perpetua text-[1.2rem] sm:text-2xl md:text-4xl lg:text-5xl text-[var(--dark)] mb-4 sm:mb-6 leading-tight px-4">
             Consulta Particular
           </h2>
 
-          <p className="text-base sm:text-lg md:text-xl text-gray-800 mb-4 leading-relaxed px-6 sm:px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-800 mb-4 leading-relaxed px-6 sm:px-4 italic font-light hidden sm:block">
             Agende uma sessão individual e comece sua jornada de transformação.
           </p>
 

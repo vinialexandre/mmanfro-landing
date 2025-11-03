@@ -12,7 +12,7 @@ export default function About() {
     <section id="sobre" className="min-h-screen flex items-center py-12 sm:py-16 md:py-20 bg-[var(--accent)]">
       <div className="container mx-auto px-4 sm:px-6">
         <div ref={title.ref} className={`text-center mb-10 sm:mb-12 md:mb-16 animate-on-scroll ${title.isVisible ? 'visible' : ''}`}>
-          <h2 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--foreground)] mb-4 whitespace-nowrap">
+          <h2 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--foreground)] mb-4 px-4">
             Quem é Milena Manfro?
           </h2>
         </div>

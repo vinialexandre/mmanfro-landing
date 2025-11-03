@@ -41,10 +41,10 @@ export default function Newsletter() {
             <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[var(--primary)] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
               <Mail className="text-white" size={28} />
             </div>
-            <h2 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-3 sm:mb-4 whitespace-nowrap">
+            <h2 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-3 sm:mb-4 px-4">
               Entre em Contato
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto px-4 hidden lg:block whitespace-nowrap">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 px-4 hidden lg:block italic font-light text-center">
               Tem alguma dúvida ou quer saber mais sobre o curso? Envie uma mensagem!
             </p>
           </div>

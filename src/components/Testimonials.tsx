@@ -60,10 +60,10 @@ export default function Testimonials() {
     <section id="depoimentos" className="min-h-screen flex items-center py-12 sm:py-16 md:py-20 bg-[var(--secondary)]">
       <div className="container mx-auto px-4 sm:px-6">
         <div ref={title.ref} className={`text-center mb-10 sm:mb-12 animate-on-scroll ${title.isVisible ? 'visible' : ''}`}>
-          <h2 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--dark)] mb-4 whitespace-nowrap">
+          <h2 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--dark)] mb-4 px-4">
             Depoimentos
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto px-4 hidden sm:block whitespace-nowrap">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 px-4 hidden sm:block italic font-light text-center">
             Histórias reais de transformação através da comunicação eficaz
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function Testimonials() {
         </div>
 
         <div className="text-center mt-10 sm:mt-12">
-          <p className="text-base sm:text-lg text-gray-600 px-4">
+          <p className="text-base sm:text-lg text-gray-600 px-4 italic font-light">
             Junte-se a centenas de alunos que já transformaram sua comunicação
           </p>
         </div>

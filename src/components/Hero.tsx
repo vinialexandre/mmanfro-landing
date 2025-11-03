@@ -7,9 +7,9 @@ import { useState, useEffect } from 'react';
 export default function Hero() {
   const images = [
     { src: '/images/IMG_4166.JPG', position: '70% 40%', mobilePosition: '10% 100%' },
-    { src: '/images/IMG_4280.JPG', position: '60% 40%', mobilePosition: '10% 100%' },
     { src: '/images/DSC_7629.jpeg', position: '70% 45%', mobilePosition: '10% 100%' },
     { src: '/images/DSC_7678.jpeg', position: '20% 35%', mobilePosition: '10% 100%' },
+    { src: '/images/IMG_4280.JPG', position: '60% 40%', mobilePosition: '10% 100%' },
     { src: '/images/IMG_4322.JPG', position: '70% 50%', mobilePosition: '10% 100%' }
   ];
 
@@ -68,25 +68,24 @@ export default function Hero() {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-20 pb-20 md:pb-20 relative z-10">
-        <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8 animate-[slideUp_1s_ease-out]">
+        <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8 animate-[slideUp_1s_ease-out] flex flex-col items-center">
 
-          <h1 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-[1.4] sm:leading-[1.1] px-6 sm:px-8 md:px-2 max-w-5xl mx-auto">
+          <h1 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-[3.1rem] text-white leading-[1.4] sm:leading-[1.1] px-6 sm:px-8 md:px-2 max-w-7xl">
             Como transformar o que você sente em algo que o outro possa escutar
           </h1>
 
-          <div className="w-16 sm:w-20 h-1 bg-[var(--primary)] mx-auto hidden xl:block"></div>
+          <div className="w-16 mt-4 sm:w-20 h-1 bg-[var(--primary)] hidden xl:block"></div>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed max-w-4xl mx-auto px-4 hidden xl:block whitespace-nowrap">
+          <p className="text-lg mt-6 sm:text-xl md:text-2xl text-white/90 leading-relaxed px-4 hidden xl:block italic font-light">
             Passo a passo para transformar o que antes virava briga em entendimento e conexão
           </p>
 
           <div className="pt-8 sm:pt-6">
             <button
               onClick={scrollToCourse}
-              className="group bg-white text-[var(--dark)] px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-none hover:bg-[var(--primary)] hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide cursor-pointer shadow-2xl mx-auto max-w-full"
+              className="group bg-white text-[var(--dark)] px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full hover:bg-[var(--primary)] hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide cursor-pointer shadow-2xl max-w-full"
             >
-              <span className="text-center">Quero me comunicar melhor</span>
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              <span className="text-center">Ver mais</span>
             </button>
           </div>
         </div>
