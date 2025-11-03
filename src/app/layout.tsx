@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://mmanfro-landing.vercel.app").replace(/\/$/, "");
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -41,9 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/mm.png",
-        width: 1200,
-        height: 630,
+        url: "/og/og.jpg",
         alt: "Milena Manfro - Psicóloga",
       },
     ],
@@ -52,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Milena Manfro - Psicóloga | Curso de Comunicação Eficaz",
     description: "Transforme sua comunicação com técnicas comprovadas da psicologia",
-    images: ["/images/mm.png"],
+    images: ["/og/og.jpg"],
   },
   robots: {
     index: true,
@@ -75,7 +73,7 @@ export default function RootLayout({
     jobTitle: "Psicóloga",
     url: baseUrl,
     sameAs: ["https://www.instagram.com/milenamanfropsi/"],
-    image: `${baseUrl}/images/mm.png`,
+    image: `${baseUrl}/og/og.jpg`,
   };
 
   const websiteLd = {
