@@ -40,17 +40,20 @@ export default function CourseAccess() {
             <div className="mb-6 sm:mb-8">
               <p className="text-white/80 text-xl sm:text-2xl mb-3 sm:mb-4">Investimento</p>
               <div className="flex items-center justify-center gap-4">
-                <span className="font-perpetua text-4xl sm:text-5xl md:text-6xl text-white">R$ 297</span>
+                <span className="font-perpetua text-4xl sm:text-5xl md:text-6xl text-white">R$ 197</span>
               </div>
-              <p className="text-white/90 text-xs sm:text-sm mt-2">ou 12x de R$ 29,70</p>
+              <p className="text-white/90 text-xs sm:text-sm mt-2">ou 12x de R$ 20,37</p>
             </div>
 
-            <button
+            <a
+              href="https://go.hotmart.com/J102686261H"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-[var(--foreground)] px-8 sm:px-10 md:px-12 py-4 md:py-5 rounded-full hover:bg-[var(--accent)] transition-all text-base sm:text-lg md:text-xl font-bold inline-flex items-center justify-center gap-2 sm:gap-3 shadow-xl hover:scale-105 cursor-pointer w-full sm:w-auto"
             >
               <span>Quero acessar agora</span>
               <ArrowRight size={20} className="flex-shrink-0" />
-            </button>
+            </a>
 
             <p className="text-white/80 text-xs sm:text-sm mt-4 sm:mt-6">
               Pagamento 100% seguro via Hotmart

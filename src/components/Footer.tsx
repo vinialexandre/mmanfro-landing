@@ -63,7 +63,7 @@ export default function Footer() {
 
         <div className="border-t border-white/20 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-white/60">
           <p>© {new Date().getFullYear()} Milena Manfro. Todos os direitos reservados.</p>
-          <p className="mt-2">CRP 07/XXXXX</p>
+          <p className="mt-2">CRPRS 07/26997</p>
         </div>
       </div>
     </footer>

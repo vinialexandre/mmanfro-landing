@@ -9,7 +9,7 @@ export default function About() {
   const text = useScrollAnimation();
 
   return (
-    <section id="sobre" className="min-h-screen flex items-center py-12 sm:py-16 md:py-20 bg-[var(--accent)]">
+    <section id="sobre" className="min-h-screen flex items-center py-12 sm:py-16 md:py-20 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6">
         <div ref={title.ref} className={`text-center mb-10 sm:mb-12 md:mb-16 animate-on-scroll ${title.isVisible ? 'visible' : ''}`}>
           <h2 className="font-perpetua text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--foreground)] mb-4 px-4">
@@ -59,7 +59,7 @@ export default function About() {
             </p>
             <div className="pt-2 sm:pt-4 text-center md:text-left">
               <p className="text-xs sm:text-sm text-gray-500 italic">
-                CRP 07/XXXXX - Psicóloga Clínica
+                CRPRS 07/26997 - Psicóloga Clínica
               </p>
             </div>
           </div>

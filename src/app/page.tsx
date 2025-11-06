@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import Results from '@/components/Results';
 import CourseAccess from '@/components/CourseAccess';
 import CTA from '@/components/CTA';
 import Testimonials from '@/components/Testimonials';
@@ -15,6 +16,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Results />
         <Testimonials />
         <CourseAccess />
         <CTA />

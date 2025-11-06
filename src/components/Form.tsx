@@ -18,19 +18,27 @@ export default function Newsletter() {
     setIsSubmitting(true);
     setStatusMessage('');
 
-    const mailtoLink = `mailto:psicologamilenamanfro@gmail.com?subject=Contato de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${messageContent}`)}`;
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message: messageContent })
+      });
 
-    window.location.href = mailtoLink;
-
-    setStatusMessage('Abrindo seu cliente de email...');
-    setEmail('');
-    setName('');
-    setMessageContent('');
-    setIsSubmitting(false);
-
-    setTimeout(() => {
-      setStatusMessage('');
-    }, 5000);
+      if (response.ok) {
+        setStatusMessage('✓ Mensagem enviada com sucesso!');
+        setEmail('');
+        setName('');
+        setMessageContent('');
+      } else {
+        setStatusMessage('✗ Erro ao enviar. Tente novamente.');
+      }
+    } catch (error) {
+      setStatusMessage('✗ Erro ao enviar. Tente novamente.');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setStatusMessage(''), 5000);
+    }
   };
 
   return (
