@@ -2,9 +2,11 @@
 
 import { ArrowUp } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useScrollToSection } from '@/hooks/useScrollToSection';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const { scrollToTop } = useScrollToSection();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -21,13 +23,6 @@ export default function ScrollToTop() {
       window.removeEventListener('scroll', toggleVisibility);
     };
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   return (
     <>

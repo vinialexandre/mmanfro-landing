@@ -1,4 +1,5 @@
-import { Instagram, Mail, MessageCircle, Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { siInstagram, siWhatsapp, siTiktok } from 'simple-icons';
 
 export default function Footer() {
   return (
@@ -29,7 +30,15 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white/80 hover:text-white transition-colors justify-center lg:justify-start"
                 >
-                  <MessageCircle size={18} className="flex-shrink-0" />
+                  <svg
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={18}
+                    height={18}
+                    fill="currentColor"
+                  >
+                    <path d={siWhatsapp.path} />
+                  </svg>
                   <span className="text-xs sm:text-sm">(51) 99167-0953</span>
                 </a>
               </div>
@@ -45,16 +54,32 @@ export default function Footer() {
                   className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
                   aria-label="Instagram"
                 >
-                  <Instagram size={20} />
+                  <svg
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={20}
+                    height={20}
+                    fill="currentColor"
+                  >
+                    <path d={siInstagram.path} />
+                  </svg>
                 </a>
                 <a
-                  href="https://wa.me/5551991670953"
+                  href="https://www.tiktok.com/@milenamanfropsi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                  aria-label="WhatsApp"
+                  aria-label="TikTok"
                 >
-                  <Phone size={20} />
+                  <svg
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={20}
+                    height={20}
+                    fill="currentColor"
+                  >
+                    <path d={siTiktok.path} />
+                  </svg>
                 </a>
               </div>
             </div>

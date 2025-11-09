@@ -2,29 +2,27 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useScrollToSection } from '@/hooks/useScrollToSection';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollToSection: scrollTo, scrollToTop } = useScrollToSection();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
+
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollTo(id);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -90,6 +88,12 @@ export default function Header() {
               className="text-gray-700 hover:text-[var(--primary)] transition-colors text-center cursor-pointer py-2"
             >
               Sobre
+            </button>
+            <button
+              onClick={() => scrollToSection('aula-bonus')}
+              className="text-gray-700 hover:text-[var(--primary)] transition-colors text-center cursor-pointer py-2"
+            >
+              Aula Bônus
             </button>
             <button
               onClick={() => scrollToSection('depoimentos')}

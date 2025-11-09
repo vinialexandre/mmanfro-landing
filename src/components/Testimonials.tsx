@@ -45,14 +45,17 @@ export default function Testimonials() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
   const title = useScrollAnimation();
   const cards = useScrollAnimation();
 
   const nextTestimonial = () => {
+    setDirection('right');
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
+    setDirection('left');
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
@@ -90,8 +93,13 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="md:hidden">
-          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg relative">
+        <div className="md:hidden overflow-hidden">
+          <div
+            key={currentIndex}
+            className={`bg-white p-6 sm:p-8 rounded-2xl shadow-lg relative ${
+              direction === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'
+            }`}
+          >
             <Quote className="absolute top-4 right-4 text-[var(--secondary)] opacity-30" size={40} />
             <div className="flex gap-1 mb-4 justify-center">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (

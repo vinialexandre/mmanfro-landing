@@ -1,18 +1,15 @@
 'use client';
 
 import { Mail, Phone } from 'lucide-react';
-import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useScrollToSection } from '@/hooks/useScrollToSection';
 
 export default function CTA() {
-  const [hotmartLink] = useState('');
   const content = useScrollAnimation();
+  const { scrollToSection } = useScrollToSection();
 
   const handleEmailClick = () => {
-    const contactSection = document.getElementById('newsletter');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToSection('newsletter');
   };
 
   const handleWhatsAppClick = () => {

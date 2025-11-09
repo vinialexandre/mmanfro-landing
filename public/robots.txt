@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mmanfro-landing.vercel.app/sitemap.xml
+

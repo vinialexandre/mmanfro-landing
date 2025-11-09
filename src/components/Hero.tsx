@@ -3,6 +3,8 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useMobileDetection } from '@/hooks/useMobileDetection';
+import { useScrollToSection } from '@/hooks/useScrollToSection';
 
 export default function Hero() {
   const images = [
@@ -14,18 +16,16 @@ export default function Hero() {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]));
+  const isMobile = useMobileDetection();
+  const { scrollToSection } = useScrollToSection();
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    const nextIndex = (currentImageIndex + 1) % images.length;
+    if (!loadedImages.has(nextIndex)) {
+      setLoadedImages(prev => new Set(prev).add(nextIndex));
+    }
+  }, [currentImageIndex, images.length, loadedImages]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,35 +35,34 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  const scrollToCourse = () => {
-    const element = document.getElementById('curso');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="inicio" className="min-h-screen flex items-center md:items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0">
-        {images.map((image, index) => (
-          <div
-            key={image.src}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <div className="w-full h-full animate-[pan_20s_ease-in-out_infinite]">
-              <Image
-                src={image.src}
-                alt="Milena Manfro - Psicóloga"
-                fill
-                className="object-cover grayscale brightness-50 scale-110 md:scale-100"
-                style={{ objectPosition: isMobile ? image.mobilePosition : image.position }}
-                priority={index === 0}
-              />
+        {images.map((image, index) => {
+          const shouldLoad = loadedImages.has(index);
+          return (
+            <div
+              key={image.src}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              {shouldLoad && (
+                <div className="w-full h-full animate-[pan_20s_ease-in-out_infinite]">
+                  <Image
+                    src={image.src}
+                    alt="Milena Manfro - Psicóloga"
+                    fill
+                    className="object-cover grayscale brightness-50 scale-110 md:scale-100"
+                    style={{ objectPosition: isMobile ? image.mobilePosition : image.position }}
+                    priority={index === 0}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          );
+        })}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
       </div>
       
@@ -82,7 +81,7 @@ export default function Hero() {
 
           <div className="pt-8 sm:pt-6">
             <button
-              onClick={scrollToCourse}
+              onClick={() => scrollToSection('aula-bonus')}
               className="group bg-white text-[var(--dark)] px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full hover:bg-[var(--primary)] hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide cursor-pointer shadow-2xl max-w-full"
             >
               <span className="text-center">Ver mais</span>

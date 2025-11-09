@@ -88,6 +88,18 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
         <Script
+          id="scroll-to-top"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                window.history.scrollRestoration = 'manual';
+                window.scrollTo(0, 0);
+              }
+            `,
+          }}
+        />
+        <Script
           id="ld-person"
           type="application/ld+json"
           strategy="afterInteractive"

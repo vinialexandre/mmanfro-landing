@@ -10,13 +10,44 @@ export default function Newsletter() {
   const [messageContent, setMessageContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
   const title = useScrollAnimation();
   const form = useScrollAnimation();
 
+  const validateForm = (): boolean => {
+    const newErrors: { name?: string; email?: string; message?: string } = {};
+
+    if (name.trim().length < 2) {
+      newErrors.name = 'Nome deve ter pelo menos 2 caracteres';
+    } else if (name.trim().length > 100) {
+      newErrors.name = 'Nome deve ter no máximo 100 caracteres';
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      newErrors.email = 'Email inválido';
+    }
+
+    if (messageContent.trim().length < 10) {
+      newErrors.message = 'Mensagem deve ter pelo menos 10 caracteres';
+    } else if (messageContent.trim().length > 1000) {
+      newErrors.message = 'Mensagem deve ter no máximo 1000 caracteres';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setStatusMessage('');
+    setErrors({});
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('/api/contact', {
@@ -25,19 +56,28 @@ export default function Newsletter() {
         body: JSON.stringify({ name, email, message: messageContent })
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setStatusMessage('✓ Mensagem enviada com sucesso!');
         setEmail('');
         setName('');
         setMessageContent('');
+      } else if (response.status === 400 && data.details) {
+        const validationErrors: { name?: string; email?: string; message?: string } = {};
+        data.details.forEach((err: { path: string[]; message: string }) => {
+          const field = err.path[0] as 'name' | 'email' | 'message';
+          validationErrors[field] = err.message;
+        });
+        setErrors(validationErrors);
       } else {
         setStatusMessage('✗ Erro ao enviar. Tente novamente.');
       }
     } catch (error) {
-      setStatusMessage('✗ Erro ao enviar. Tente novamente.');
+      setStatusMessage('✗ Erro ao enviar. Tente novamente.' + error);
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setStatusMessage(''), 5000);
+      setTimeout(() => setStatusMessage(''), 8000);
     }
   };
 
@@ -69,9 +109,14 @@ export default function Newsletter() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-full border-2 border-gray-200 focus:border-[var(--primary)] focus:outline-none transition-colors text-gray-800 text-sm sm:text-base"
+                  className={`w-full px-4 sm:px-6 py-3 sm:py-4 rounded-full border-2 ${
+                    errors.name ? 'border-red-500' : 'border-gray-200'
+                  } focus:border-[var(--primary)] focus:outline-none transition-colors text-gray-800 text-sm sm:text-base`}
                   placeholder="Digite seu nome completo"
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-xs sm:text-sm mt-1 ml-4">{errors.name}</p>
+                )}
               </div>
 
               <div>
@@ -84,9 +129,14 @@ export default function Newsletter() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-full border-2 border-gray-200 focus:border-[var(--primary)] focus:outline-none transition-colors text-gray-800 text-sm sm:text-base"
+                  className={`w-full px-4 sm:px-6 py-3 sm:py-4 rounded-full border-2 ${
+                    errors.email ? 'border-red-500' : 'border-gray-200'
+                  } focus:border-[var(--primary)] focus:outline-none transition-colors text-gray-800 text-sm sm:text-base`}
                   placeholder="seu@email.com"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-xs sm:text-sm mt-1 ml-4">{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -99,9 +149,14 @@ export default function Newsletter() {
                   onChange={(e) => setMessageContent(e.target.value)}
                   required
                   rows={5}
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border-2 border-gray-200 focus:border-[var(--primary)] focus:outline-none transition-colors text-gray-800 resize-none text-sm sm:text-base"
+                  className={`w-full px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border-2 ${
+                    errors.message ? 'border-red-500' : 'border-gray-200'
+                  } focus:border-[var(--primary)] focus:outline-none transition-colors text-gray-800 resize-none text-sm sm:text-base`}
                   placeholder="Digite sua mensagem..."
                 />
+                {errors.message && (
+                  <p className="text-red-500 text-xs sm:text-sm mt-1 ml-4">{errors.message}</p>
+                )}
               </div>
 
               <button
