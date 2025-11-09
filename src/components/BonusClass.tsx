@@ -24,7 +24,7 @@ export default function BonusClass() {
           </p>
         </div>
 
-        <div ref={videoRef} className={`max-w-6xl mx-auto mb-8 sm:mb-10 md:mb-12 animate-scale ${videoVisible ? 'visible' : ''}`}>
+        <div ref={videoRef} className={`max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12 animate-scale ${videoVisible ? 'visible' : ''}`}>
           <div className="relative bg-white rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
             <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-[var(--primary)] text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg flex items-center gap-2">
               <Gift className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
