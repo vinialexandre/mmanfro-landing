@@ -16,11 +16,11 @@ export default function BonusClass() {
         <div ref={titleRef} className={`text-center mb-8 sm:mb-10 md:mb-12 animate-on-scroll ${titleVisible ? 'visible' : ''}`}>
           <div className="flex items-center justify-center gap-3 mb-4">
             <h2 className="font-perpetua text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[var(--foreground)] px-4">
-              Aula Gratuita
+              Aula Bônus
             </h2>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-gray-700 px-4 hidden lg:block italic font-light text-center">
-            Assista a uma aula exclusiva do curso e descubra como transformar sua comunicação
+            Assista a esta aula exclusiva e descubra como transformar sua comunicação
           </p>
         </div>
 
